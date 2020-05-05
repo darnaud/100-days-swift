@@ -17,6 +17,7 @@ class DetailViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareButtonTapped))
         
         navigationItem.largeTitleDisplayMode = .never
         
@@ -38,14 +39,14 @@ class DetailViewController: UIViewController{
         navigationController?.hidesBarsOnTap = false
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+ 
+    @objc func shareButtonTapped(){
+        let message = "Hey Social Media friends, download this great app! #ElToro"
+        let url = URL(string: "https://www.eltoro.com")!
+        let vc = UIActivityViewController(activityItems: [message, url], applicationActivities: [])
+        
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        
+        present(vc, animated: true)
     }
-    */
-
 }

@@ -44,7 +44,6 @@ class ViewController: UITableViewController {
             
             // 2: success! Set its selectedImage property
             vc.selectedImage = pictures[indexPath.row]
-            
             vc.pictureIndex = indexPath.row
             vc.totalPictures = pictures.count
             
